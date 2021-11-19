@@ -1,0 +1,1 @@
+Binary Search Algorithm is one of the widely used searching techniques. It only can be used to sort arrays. This searching technique follows the divide and conquer strategy. The search space always reduces to half in every iteration.
