@@ -1,3 +1,6 @@
+// Ceiling : smallest element in the arry greater or = target
+
+
 const arr = [4,7,11,17,21,49,52];
 let target =50;
 
@@ -16,7 +19,7 @@ function binarySearch(arr, target) {
     } 
   
   }
-  return -1;
+  return arr[start];
 }
 let ans = binarySearch(arr, target);
 
