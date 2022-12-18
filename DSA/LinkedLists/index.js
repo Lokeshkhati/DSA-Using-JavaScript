@@ -31,6 +31,23 @@ class LinkedList {
         this.size++
 
     }
+    // insertion at Last
+    append(value) {
+        const node = new Node(value)
+        if (this.isEmpty()) {
+            this.head = node
+        }
+        else {
+            let prev = this.head
+
+            while (prev.next) {
+                prev = prev.next
+            }
+            prev.next = node
+        }
+        this.size++
+
+    }
     // traversing LinkedList
     print() {
         if (this.isEmpty()) {
@@ -49,8 +66,6 @@ class LinkedList {
 
         }
     }
-
-    
 }
 
 
@@ -58,6 +73,8 @@ const list = new LinkedList()
 list.prepend(10)
 list.prepend(20)
 list.prepend(30)
+list.append(60)
+list.append(80)
 list.print()
 
 console.log(`List size : ${list.getSize()}`)
