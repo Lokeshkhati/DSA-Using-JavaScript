@@ -68,6 +68,30 @@ class LinkedList {
         }
     }
 
+    // delete at given index / position
+    deleteAtIndex(index) {
+        let removedNode;
+        if (index < 0 || index > this.size) {
+            return null
+        }
+        else if (index === 0) {
+            removedNode = this.head
+            this.head = this.head.next
+            this.size--
+            return removedNode.value
+        }
+        else {
+            let prev = this.head
+            for (let i = 0; i < index - 1; i++) {
+                prev = prev.next
+            }
+            removedNode = prev.next
+            prev.next = removedNode.next
+            this.size--
+            return removedNode.value
+        }
+    }
+
     // traversing LinkedList
     print() {
         if (this.isEmpty()) {
@@ -95,7 +119,9 @@ list.prepend(20)
 list.prepend(30)
 list.append(60)
 list.append(80)
-list.insertAtIndex(100,3)
+list.insertAtIndex(100, 3)
+list.print()
+list.deleteAtIndex(4)
 list.print()
 
 console.log(`List size : ${list.getSize()}`)
