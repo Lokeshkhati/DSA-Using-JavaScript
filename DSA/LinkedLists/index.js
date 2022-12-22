@@ -92,6 +92,25 @@ class LinkedList {
         }
     }
 
+    // reverse LL
+
+    reverse() {
+        let curr = this.head
+        let prev = null
+
+        while (curr) {
+            let next = curr.next
+            curr.next = prev
+            prev = curr
+            curr = next
+        }
+        this.head = prev
+    }
+
+    removeDuplicates(){
+        
+    }
+
     // traversing LinkedList
     print() {
         if (this.isEmpty()) {
@@ -116,13 +135,14 @@ class LinkedList {
 const list = new LinkedList()
 list.prepend(10)
 list.prepend(20)
+list.prepend(20)
 list.prepend(30)
+list.append(60)
 list.append(60)
 list.append(80)
 list.insertAtIndex(100, 3)
-list.print()
+// list.print()
 list.deleteAtIndex(4)
 list.print()
-
-console.log(`List size : ${list.getSize()}`)
-console.log(`List is empty : ${list.isEmpty()}`)
+list.reverse()
+list.print()
