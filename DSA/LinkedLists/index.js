@@ -107,11 +107,11 @@ class LinkedList {
         this.head = prev
     }
 
+    // https://leetcode.com/problems/remove-duplicates-from-sorted-list/
     removeDuplicates() {
     }
 
     // https://leetcode.com/problems/remove-linked-list-elements/
-
     removeElement(value) {
         let curr = this.head
         let prev = null
@@ -134,7 +134,38 @@ class LinkedList {
 
     }
 
+    // https://leetcode.com/problems/reverse-linked-list-ii/
+    reverseBetween(left, right) {
 
+        if (left === right) {
+            return console.log("left and right can not be same")
+        }
+        let curr = this.head
+        let prev = null
+
+        // first access the left 
+        for (let i = 0; i < left - 1; i++) {
+            prev = curr
+            curr = curr.next
+        }
+        let currHead = prev
+        let newEnd = curr
+
+        // reverse between now
+        for (let i = 0; i < right - left + 1; i++) {
+            let next = curr.next
+            curr.next = prev
+            prev = curr
+            curr = next
+        }
+        if (currHead !== null) {
+            currHead.next = prev
+        }
+        else {
+            this.head = prev
+        }
+        newEnd.next = curr
+    }
 
     // traversing LinkedList
     print() {
@@ -158,14 +189,12 @@ class LinkedList {
 
 
 const list = new LinkedList()
-list.append(10)
-list.append(20)
-// list.append(20)
-list.append(30)
-list.append(30)
-list.append(30)
-list.append(40)
-// list.append(60)
+list.append(1)
+list.append(2)
+// list.append(2)
+list.append(3)
+list.append(4)
+list.append(5)
 // list.append(60)
 // list.append(80)
 // list.append(80)
@@ -173,6 +202,8 @@ list.append(40)
 // list.print()
 // list.deleteAtIndex(4)
 list.print()
-list.removeElement(30)
+// list.removeElement(30)
 // list.reverse()
+// console.log(
+list.reverseBetween(2, 4)
 list.print()
