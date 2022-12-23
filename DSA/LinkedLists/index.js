@@ -107,9 +107,34 @@ class LinkedList {
         this.head = prev
     }
 
-    removeDuplicates(){
-        
+    removeDuplicates() {
     }
+
+    // https://leetcode.com/problems/remove-linked-list-elements/
+
+    removeElement(value) {
+        let curr = this.head
+        let prev = null
+
+        while (curr) {
+            if (curr.value === value) {
+                if (prev) {
+                    prev.next = curr.next
+
+                }
+                else {
+                    this.head = curr.next
+                }
+            }
+            else {
+                prev = curr
+            }
+            curr = curr.next
+        }
+
+    }
+
+
 
     // traversing LinkedList
     print() {
@@ -133,17 +158,21 @@ class LinkedList {
 
 
 const list = new LinkedList()
-list.prepend(10)
-list.prepend(20)
-list.prepend(20)
-list.prepend(30)
-list.append(60)
-list.append(60)
-list.append(80)
-list.append(80)
-list.insertAtIndex(100, 3)
+list.append(10)
+list.append(20)
+// list.append(20)
+list.append(30)
+list.append(30)
+list.append(30)
+list.append(40)
+// list.append(60)
+// list.append(60)
+// list.append(80)
+// list.append(80)
+// list.insertAtIndex(100, 3)
 // list.print()
-list.deleteAtIndex(4)
+// list.deleteAtIndex(4)
 list.print()
-list.reverse()
+list.removeElement(30)
+// list.reverse()
 list.print()
