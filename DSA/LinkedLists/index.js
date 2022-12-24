@@ -92,8 +92,7 @@ class LinkedList {
         }
     }
 
-    // reverse LL
-
+    // https://leetcode.com/problems/reverse-linked-list/
     reverse() {
         let curr = this.head
         let prev = null
@@ -112,7 +111,7 @@ class LinkedList {
     }
 
     // https://leetcode.com/problems/remove-linked-list-elements/
-    removeElement(value) {
+    removeElements(value) {
         let curr = this.head
         let prev = null
 
@@ -157,6 +156,7 @@ class LinkedList {
             curr.next = prev
             prev = curr
             curr = next
+
         }
         if (currHead !== null) {
             currHead.next = prev
@@ -202,7 +202,7 @@ list.append(5)
 // list.print()
 // list.deleteAtIndex(4)
 list.print()
-// list.removeElement(30)
+// list.removeElements(30)
 // list.reverse()
 // console.log(
 list.reverseBetween(2, 4)
