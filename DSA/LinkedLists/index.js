@@ -168,28 +168,44 @@ class LinkedList {
     }
 
     // https://leetcode.com/problems/linked-list-cycle/
+    hasCycle() {
+        let fast = this.head
+        let slow = this.head
 
-    // https://leetcode.com/problems/linked-list-cycle-ii/
+        while (fast !== null && fast.next !== null) {
+            fast = fast.next.next
+            slow = slow.next
 
-
-        // traversing LinkedList
-        print() {
-    if (this.isEmpty()) {
-        console.log('List is empty')
-    }
-    else {
-        let curr = this.head
-        let listValues = ''
-
-        while (curr) {
-            listValues += `${curr.value} `
-            curr = curr.next
+            if (slow === fast) {
+                return true
+            }
 
         }
-        console.log(listValues)
 
+        return false
+    };
+
+   
+
+
+    // traversing LinkedList
+    print() {
+        if (this.isEmpty()) {
+            console.log('List is empty')
+        }
+        else {
+            let curr = this.head
+            let listValues = ''
+
+            while (curr) {
+                listValues += `${curr.value} `
+                curr = curr.next
+
+            }
+            console.log(listValues)
+
+        }
     }
-}
 }
 
 
