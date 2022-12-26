@@ -185,7 +185,28 @@ class LinkedList {
         return false
     };
 
-   
+    // Follow Up Length of cycle
+
+    // https://leetcode.com/problems/linked-list-cycle-ii/
+    detectCycle() {
+        let fast = this.head
+        let slow = this.head
+
+        while (fast !== null && fast.next !== null) {
+            fast = fast.next.next
+            slow = slow.next
+
+            if (slow === fast) {
+                slow = this.head
+                while (slow !== fast) {
+                    slow = slow.next
+                    fast = fast.next
+                }
+                return slow
+            }
+        }
+        return null
+    };
 
 
     // traversing LinkedList
