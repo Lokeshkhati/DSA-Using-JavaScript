@@ -167,24 +167,29 @@ class LinkedList {
         newEnd.next = curr
     }
 
-    // traversing LinkedList
-    print() {
-        if (this.isEmpty()) {
-            console.log('List is empty')
-        }
-        else {
-            let curr = this.head
-            let listValues = ''
+    // https://leetcode.com/problems/linked-list-cycle/
 
-            while (curr) {
-                listValues += `${curr.value} `
-                curr = curr.next
+    // https://leetcode.com/problems/linked-list-cycle-ii/
 
-            }
-            console.log(listValues)
 
-        }
+        // traversing LinkedList
+        print() {
+    if (this.isEmpty()) {
+        console.log('List is empty')
     }
+    else {
+        let curr = this.head
+        let listValues = ''
+
+        while (curr) {
+            listValues += `${curr.value} `
+            curr = curr.next
+
+        }
+        console.log(listValues)
+
+    }
+}
 }
 
 
